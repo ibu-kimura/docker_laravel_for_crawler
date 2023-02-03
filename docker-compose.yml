@@ -22,6 +22,7 @@ services:
     depends_on:
       - db
     restart: always
+
   db:
     build: ./mysql
     volumes:
