@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('検索結果') }}
+                    {{ __('Twitter') }}
                 </div>
             </div>
         </div>

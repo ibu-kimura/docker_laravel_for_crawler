@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function keywords_settings()
+    {
+        return view('keywords_settings');
+    }
+
+    public function Twitter()
+    {
+        return view('Twitter');
+    }
+
+    public function search()
+    {
+        return view('search');
+    }
 }
