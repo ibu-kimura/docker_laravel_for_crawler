@@ -32,9 +32,4 @@ class HomeController extends Controller
         ->get();
         return view('home',['list' => $list]);
     }
-
-    public function search()
-    {
-        return view('search');
-    }
 }

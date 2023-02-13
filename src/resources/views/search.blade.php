@@ -6,6 +6,14 @@
         <div class="col-md-8">
             <p class="h3 col">検索結果</p>
             <p class="h4 col">週間件数</p>
+            <form method="post" action="search.php">
+                <p>~</p>
+                <button type="submit">検索</button>
+            </form>
+            <h3>発見したURLの数:</h3>
+            <h3>自動警告件数:</h3>
+            <h3>削除確認件数:</h3>
+            <h3>手動警告件数:</h3>
         </div>
     </div>
 </div>
