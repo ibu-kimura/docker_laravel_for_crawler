@@ -27,6 +27,28 @@
                     <th scope="col">設定日</th>
                     <th scope="col">巡回日</th>
                 </tr>
+                <? foreach($list as $value){ ?>
+                <tr scope='row align-items-center'>
+                    <td class='align-middle'>
+                        <? if($value->target_type==1){?>
+                        WEBSITE
+                        <? }elseif($value->target_type=-2){?>
+                        Twitter
+                        <? }else{ ?>
+                        Google
+                        <? } ?>
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->keyword }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->created }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->searched }}
+                    </td>
+                </tr>
+                <? } ?>
             </table>
         </div>
     </div>

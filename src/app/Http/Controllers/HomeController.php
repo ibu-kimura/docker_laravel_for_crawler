@@ -33,11 +33,6 @@ class HomeController extends Controller
         return view('home',['list' => $list]);
     }
 
-    public function keywords_settings()
-    {
-        return view('keywords_settings');
-    }
-
     public function search()
     {
         return view('search');
