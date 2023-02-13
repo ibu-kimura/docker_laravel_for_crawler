@@ -23,17 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('home');
     }
 
     public function keywords_settings()
     {
         return view('keywords_settings');
-    }
-
-    public function Twitter()
-    {
-        return view('Twitter');
     }
 
     public function search()

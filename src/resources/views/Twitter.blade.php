@@ -22,6 +22,53 @@
                     <th scope="col">添付ファイル</th>
                     <th scope="col">コメント</th>
                 </tr>
+
+                <? foreach($list as $value){ ?>
+                    <tr scope='row align-items-center'>
+                        <td class='align-middle'>
+                            {{ $value->keyword }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->created }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->type }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->full_text }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->url }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->works_title }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->works_actress }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->works_url }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->type }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->type }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->deleted }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->updated }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->type }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->comment }}
+                        </td>
+                    </tr>
+                    <? } ?>
             </table>
         </div>
     </div>

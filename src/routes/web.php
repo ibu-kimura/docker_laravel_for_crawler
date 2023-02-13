@@ -21,5 +21,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/keywords_settings', [App\Http\Controllers\HomeController::class, 'keywords_settings'])->name('keywords_settings');
-Route::get('/Twitter', [App\Http\Controllers\HomeController::class, 'Twitter'])->name('Twitter');
+Route::get('/Twitter', [App\Http\Controllers\TwitterController::class, 'Twitter'])->name('Twitter');
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');

@@ -13,7 +13,14 @@
                 <th scope="col">検索サイト</th>
                 <th scope="col">検索ワード</th>
                 <th scope="col">URL</th>
-                <th scope="col">検出日
+                <th scope="col">検出日</th>
+                <th scope="col">
+                    <p>ステータス</p>
+                    <input id="checkbox_all" type="checkbox" name="bulk_btn" value=""> 全て選択 / 解除
+                </th>
+                <th scope="col">警告日</th>
+                <th scope="col">警告回数</th>
+                <th scope="col">巡回日</th>
             </tr>
             </table>
         </div>
