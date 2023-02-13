@@ -22,7 +22,36 @@
                 <th scope="col">警告回数</th>
                 <th scope="col">巡回日</th>
             </tr>
+            <? foreach($list as $value){ ?>
+                <tr scope='row align-items-center'>
+                    <td class='align-middle'>
+                        {{ $value->site_name }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->keyword }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->url }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->created }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->status }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->alerted }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->alert_cnt }}
+                    </td>
+                    <td class='align-middle'>
+                        {{ $value->patroled }}
+                    </td>
+                </tr>
+                <? } ?>
             </table>
+            <? var_dump($list); ?>
         </div>
     </div>
 </div>
