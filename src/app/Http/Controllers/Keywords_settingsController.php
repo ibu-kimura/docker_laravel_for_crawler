@@ -11,7 +11,7 @@ class Keywords_settingsController extends Controller
     {
         $works = DB::table('mst_works')->get();
         $list = DB::table('search_words')
-        ->get();
+        ->paginate(100);;
 
         return view('keywords_settings',['list' => $list,'works' => $works]);
     }

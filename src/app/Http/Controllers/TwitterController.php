@@ -18,7 +18,7 @@ class TwitterController extends Controller
         ->joinSub($mst_works_datas, 'mst_works_datas',function($join){
             $join->on('mst_works_datas.id', '=', 'tweet_results.works_id');
         })
-        ->get();
+        ->paginate(100);
         return view('Twitter',['list' => $list]);
     }
 

@@ -29,7 +29,7 @@ class HomeController extends Controller
         ->leftjoin('search_words', 'search_words.id', '=', 'web_results.search_word_id')
         ->leftjoin('target_services', 'target_services.id', '=', 'web_results.target_id')
         ->select('web_results.*','search_words.keyword','target_services.site_name')
-        ->get();
+        ->paginate(100);
         return view('home',['list' => $list]);
     }
 }

@@ -51,7 +51,9 @@
                 </tr>
                 <? } ?>
             </table>
-            <? var_dump($list); ?>
+        </div>
+        <div class="d-flex justify-content-center">
+        {{ $list->links('pagination::bootstrap-4')}}
         </div>
     </div>
 </div>
