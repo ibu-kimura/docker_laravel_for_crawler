@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <p class="h3 col">★キーワードを指定する★</p>
             <p class="h4 col">キーワードの追加</p>
-            <form action="keywords_settings.php" method="post" class="comment-form">
+            <form action="/post_keywords_settings" method="post" class="comment-form">
+                @csrf
                 <select name="target_type">
                     <option value=1>WEBSITE</option>
                     <option value=2>Twitter</option>
@@ -14,6 +15,9 @@
                 </select>
                 <select name="works_id">
                     <option value="">品番：女優名</option>
+                    <?foreach($works as $work){ ?>
+                        <option value={{$work->id}}>{{$work->code}}:{{$work->actress}}</option>
+                    <? } ?>
                 </select>
                 <input type="text" name="keyword">
                 <button type="submit">追加する</button>

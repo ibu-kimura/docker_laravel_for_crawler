@@ -21,4 +21,12 @@ class TwitterController extends Controller
         ->get();
         return view('Twitter',['list' => $list]);
     }
+
+    public function post_comment(Request $request)
+    {
+        $update = DB::table('tweet_results')
+        ->where('tweet_id',$request->tweet_id)
+        ->update(['comment' => $request->comment]);
+        return redirect('/Twitter');
+    }
 }

@@ -32,7 +32,7 @@
                             {{ $value->created }}
                         </td>
                         <td class='align-middle'>
-                            {{ $value->type }}
+                            {{ $value->user_id }}
                         </td>
                         <td class='align-middle'>
                             {{ $value->full_text }}
@@ -50,10 +50,10 @@
                             {{ $value->works_url }}
                         </td>
                         <td class='align-middle'>
-                            {{ $value->type }}
+                            <?=$value->type=='photo' ? '有' : '無' ?>
                         </td>
                         <td class='align-middle'>
-                            {{ $value->type }}
+                            <?=$value->type=='movie' ? '有' : '無' ?>
                         </td>
                         <td class='align-middle'>
                             {{ $value->deleted }}
@@ -62,10 +62,19 @@
                             {{ $value->updated }}
                         </td>
                         <td class='align-middle'>
-                            {{ $value->type }}
+                        <? if($value->type=='text'){ ?>
+                            無し
+                        <? }else{ ?>
+                        <a href="#">DL</a>
+                        <? } ?>
                         </td>
                         <td class='align-middle'>
-                            {{ $value->comment }}
+                            <form action="/post_Twitter" method="post" class="comment-form">
+                                @csrf
+                                <input type="hidden" name="tweet_id" value={{$value->tweet_id}}>
+                                <textarea name="comment"><?=isset($value->comment) ? $value->comment : ''?></textarea>
+                                <button type="submit">更新する</button>
+                            </form>    
                         </td>
                     </tr>
                     <? } ?>
