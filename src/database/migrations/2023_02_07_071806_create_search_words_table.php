@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('keyword',255)->comment('検索語');
             $table->datetime('created')->comment('作成日');
             $table->datetime('updated')->comment('更新日')->nullable();
-            $table->datetime('searched')->comment('検索日');
+            $table->datetime('searched')->comment('検索日')->nullable();
 
             $table->foreign('works_id')->references('id')->on('mst_works');
         });

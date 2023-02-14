@@ -18,10 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('target_id')->comment('検索サービス種別コード');
             $table->unsignedBigInteger('search_word_id')->comment('検索語コード');
             $table->text('url')->comment('url');
-            $table->string('status',255)->comment('警告ステータス');
-            $table->integer('alert_cnt')->comment('警告回数');
-            $table->datetime('alerted')->comment('警告日');
-            $table->datetime('patroled')->comment('巡回日');
+            $table->string('status',255)->comment('警告ステータス')->nullable();
+            $table->integer('alert_cnt')->comment('警告回数')->nullable();
+            $table->datetime('alerted')->comment('警告日')->nullable();
+            $table->datetime('patroled')->comment('巡回日')->nullable();
             $table->datetime('created')->comment('作成日');
 
 
