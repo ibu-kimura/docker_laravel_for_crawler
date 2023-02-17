@@ -69,6 +69,16 @@ class HomeController extends Controller
             ->orderby('created','desc')
             ->paginate(100);
         }
+        if(isset($request->status)){
+            $list = 
+            DB::table('web_results')
+            ->leftjoin('search_words', 'search_words.id', '=', 'web_results.search_word_id')
+            ->leftjoin('target_services', 'target_services.id', '=', 'web_results.target_id')
+            ->select('web_results.*','search_words.keyword','target_services.site_name')
+            ->where('status',$request->status)
+            ->orderby('created','desc')
+            ->paginate(100);
+        }
 
         return view('home',['list' => $list,'target_list' => $target_list]);
     }
