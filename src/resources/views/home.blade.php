@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <p class="h3 col">★検索結果★</p>
             <p class="h4 col">URLリスト</p>
-            <form method="get" action="index.php" class="search_condition">
+            <form method="get" action="./" class="search_condition">
                 <div class="search_inner">
                     <p class="h5 col ">絞り込み条件を指定</p>
 

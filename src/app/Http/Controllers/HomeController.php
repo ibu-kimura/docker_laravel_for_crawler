@@ -33,7 +33,7 @@ class HomeController extends Controller
         ->orderby('created','desc')
         ->paginate(100);
 
-        if($_GET['sort']){
+        if(isset($_GET['sort'])){
             $list = 
             DB::table('web_results')
             ->leftjoin('search_words', 'search_words.id', '=', 'web_results.search_word_id')
