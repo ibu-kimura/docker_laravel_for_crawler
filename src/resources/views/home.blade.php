@@ -33,14 +33,15 @@
                 </div>
             </form>
             <br>
-            <form method="post" action="index.php">
+            <form method="post" action="/post_home">
+                @csrf
                 <div class="bulk_form">
                     <p class="h5 col">ステータス一括変更</p>
                     <input class="bulkChangeBtn" type="radio" name="bulk_change" value="選択">選択
                     <input class="bulkChangeBtn" type="radio" name="bulk_change" value="警告不可">警告不可
                     <input class="bulkChangeBtn" type="radio" name="bulk_change" value="削除済み">削除済み
                     <input class="bulkChangeBtn" type="radio" name="bulk_change" value="手動警告">手動警告
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="ステータスなし">ステータスなし 
+                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="">ステータスなし 
                     <!-- 絞り込み情報受け渡し -->
                     <input type="hidden" name="search_keyword">
                     <input type="hidden" name="target_id">
@@ -49,55 +50,57 @@
                     <input type="submit" value="一括変更">
                     <br>
                 </div>
-            </form>
-            <table class="table table-sm table-hover table-striped" style="width:100%; table-layout: fixed;">
-            <caption>URL list</caption>
-            <tr>
-                <th scope="col">検索サイト</th>
-                <th scope="col">検索ワード</th>
-                <th scope="col">URL</th>
-                <th scope="col">@sortablelink('created','検出日')</th>
-                <th scope="col">
-                    <p>ステータス</p>
-                    <input id="checkbox_all" type="checkbox" name="bulk_btn" value=""> 全て選択 / 解除
-                </th>
-                <th scope="col">@sortablelink('alerted','警告日')</th>
-                <th scope="col">@sortablelink('alert_cnt','警告回数')</th>
-                <th scope="col">巡回日</th>
-            </tr>
-            <? foreach($list as $value){ ?>
-                <tr scope='row align-items-center'>
-                    <td class='align-middle'>
-                        {{ $value->site_name }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->keyword }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->url }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->created }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->status }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->alerted }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->alert_cnt }}
-                    </td>
-                    <td class='align-middle'>
-                        {{ $value->patroled }}
-                    </td>
+                <table class="table table-sm table-hover table-striped" style="width:100%; table-layout: fixed;">
+                <caption>URL list</caption>
+                <tr>
+                    <th scope="col">検索サイト</th>
+                    <th scope="col">検索ワード</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">@sortablelink('created','検出日')</th>
+                    <th scope="col">
+                        <p>ステータス</p>
+                        <input id="checkbox_all" type="checkbox" name="bulk_btn" value=""> 全て選択 / 解除
+                    </th>
+                    <th scope="col">@sortablelink('alerted','警告日')</th>
+                    <th scope="col">@sortablelink('alert_cnt','警告回数')</th>
+                    <th scope="col">巡回日</th>
                 </tr>
-                <? } ?>
-            </table>
+                <? foreach($list as $value){ ?>
+                    <tr scope='row align-items-center'>
+                        <td class='align-middle'>
+                            {{ $value->site_name }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->keyword }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->url }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->created }}
+                        </td>
+                        <td class='align-middle'>
+                            <input class=checks type="checkbox" name="change_statuses[]" value={{ $value->id }}>{{ $value->status }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->alerted }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->alert_cnt }}
+                        </td>
+                        <td class='align-middle'>
+                            {{ $value->patroled }}
+                        </td>
+                    </tr>
+                    <? } ?>
+                </table>
+            </form>
         </div>
         <div class="d-flex justify-content-center">
         {{ $list->links('pagination::bootstrap-4')}}
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+@vite(['resources/js/app.js'])
 @endsection

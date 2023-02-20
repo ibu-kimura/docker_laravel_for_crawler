@@ -18,6 +18,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/post_home', [App\Http\Controllers\HomeController::class, 'change_status'])->name('change_status');
 Route::get('/keywords_settings', [App\Http\Controllers\Keywords_settingsController::class, 'keywords_settings'])->name('keywords_settings');
 Route::post('/post_keywords_settings', [App\Http\Controllers\Keywords_settingsController::class, 'insert_keyword'])->name('insert_keyword');
 Route::get('/Twitter', [App\Http\Controllers\TwitterController::class, 'Twitter'])->name('Twitter');

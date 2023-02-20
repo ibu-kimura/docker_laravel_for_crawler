@@ -82,4 +82,14 @@ class HomeController extends Controller
 
         return view('home',['list' => $list,'target_list' => $target_list]);
     }
+
+    public function change_status(Request $request)
+    {
+        foreach($request->change_statuses as $id){
+            $update = DB::table('web_results')
+            ->where('id',$id)
+            ->update(['status' => $request->bulk_change]);
+        }
+        return redirect('/home');
+    }
 }
