@@ -6,49 +6,53 @@
         <div class="col-md-8">
             <p class="h3 col">★検索結果★</p>
             <p class="h4 col">URLリスト</p>
-            <form method="get" action="./" class="search_condition">
-                <div class="search_inner">
-                    <p class="h5 col ">絞り込み条件を指定</p>
+            <div class="rounded" style="background-color:skyblue;padding:10px;">
+                <form method="get" action="./" class="search_condition">
+                    <div class="search_inner" >
+                        <p class="h5 col ">絞り込み条件を指定</p>
 
-                    <input type="text" placeholder="ワード検索" name="search_keyword" class="search_word">
-                    <p style="display: inline-block;"> または </p>
-                    <select name="target_id" class="select_title">
-                        <option value="">サイトを選択</option>
-                        <option value=0>【すべて表示】</option>
-                        <? foreach($target_list as $value){ ?>
-                            <option value={{$value->id}}>{{$value->site_name}}</option>
-                        <? } ?>
-                    </select>
-                    <h6>【ステータスを１つ選択】</h6>
-                    <div class="statusChange_area">
-                        <input type="checkbox" name="status" value="警告" >警告
-                        <input type="checkbox" name="status" value="警告不可" >警告不可
-                        <input type="checkbox" name="status" value="再警告" >再警告
-                        <input type="checkbox" name="status" value="削除済み" >削除済み
-                        <input type="checkbox" name="status" value="手動警告" >手動警告
-                        <input type="checkbox" name="status" value="" >ステータスなし 
+                        <input type="text" placeholder="ワード検索" name="search_keyword" class="form-control">
+                        <p style="display: inline-block;"> または </p>
+                        <select name="target_id" class="form-select">
+                            <option value="">サイトを選択</option>
+                            <option value=0>【すべて表示】</option>
+                            <? foreach($target_list as $value){ ?>
+                                <option value={{$value->id}}>{{$value->site_name}}</option>
+                            <? } ?>
+                        </select>
+                        <h6>【ステータスを１つ選択】</h6>
+                        <div class="statusChange_area">
+                            <input type="checkbox" name="status" value="警告" >警告
+                            <input type="checkbox" name="status" value="警告不可" >警告不可
+                            <input type="checkbox" name="status" value="再警告" >再警告
+                            <input type="checkbox" name="status" value="削除済み" >削除済み
+                            <input type="checkbox" name="status" value="手動警告" >手動警告
+                            <input type="checkbox" name="status" value="" >ステータスなし 
+                        </div>
+                        <br>
+                        <input type="submit" value="絞り込み">
                     </div>
-                    <br>
-                    <input type="submit" value="絞り込み">
-                </div>
-            </form>
+                </form>
+            </div>
             <br>
-            <form method="post" action="/post_home">
-                @csrf
-                <div class="bulk_form">
-                    <p class="h5 col">ステータス一括変更</p>
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="選択">選択
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="警告不可">警告不可
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="削除済み">削除済み
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="手動警告">手動警告
-                    <input class="bulkChangeBtn" type="radio" name="bulk_change" value="">ステータスなし 
-                    <!-- 絞り込み情報受け渡し -->
-                    <input type="hidden" name="search_keyword">
-                    <input type="hidden" name="target_id">
-                    <input type="hidden" name="alert_status">
-                    <!-- 絞り込み情報受け渡し -->
-                    <input type="submit" value="一括変更">
-                    <br>
+            <div class="rounded" style="background-color:skyblue;padding:10px;">
+                <form method="post" action="/post_home">
+                    @csrf
+                    <div class="bulk_form">
+                        <p class="h5 col">ステータス一括変更</p>
+                        <input class="bulkChangeBtn" type="radio" name="bulk_change" value="選択">選択
+                        <input class="bulkChangeBtn" type="radio" name="bulk_change" value="警告不可">警告不可
+                        <input class="bulkChangeBtn" type="radio" name="bulk_change" value="削除済み">削除済み
+                        <input class="bulkChangeBtn" type="radio" name="bulk_change" value="手動警告">手動警告
+                        <input class="bulkChangeBtn" type="radio" name="bulk_change" value="">ステータスなし 
+                        <!-- 絞り込み情報受け渡し -->
+                        <input type="hidden" name="search_keyword">
+                        <input type="hidden" name="target_id">
+                        <input type="hidden" name="alert_status">
+                        <!-- 絞り込み情報受け渡し -->
+                        <input type="submit" value="一括変更">
+            </div>
+            <br>
                 </div>
                 <table class="table table-sm table-hover table-striped" style="width:100%; table-layout: fixed;">
                 <caption>URL list</caption>

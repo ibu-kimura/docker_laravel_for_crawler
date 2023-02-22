@@ -72,7 +72,7 @@
                             <form action="/post_Twitter" method="post" class="comment-form">
                                 @csrf
                                 <input type="hidden" name="tweet_id" value={{$value->tweet_id}}>
-                                <textarea name="comment"><?=isset($value->comment) ? $value->comment : ''?></textarea>
+                                <textarea class="form-control" name="comment"><?=isset($value->comment) ? $value->comment : ''?></textarea>
                                 <button type="submit">更新する</button>
                             </form>    
                         </td>
