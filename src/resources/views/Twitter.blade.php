@@ -23,7 +23,7 @@
                     <th scope="col">コメント</th>
                 </tr>
 
-                <? foreach($list as $value){ ?>
+                @foreach($list as $value){
                     <tr scope='row align-items-center'>
                         <td class='align-middle'>
                             {{ $value->keyword }}
@@ -77,7 +77,7 @@
                             </form>    
                         </td>
                     </tr>
-                    <? } ?>
+                    @endforeach
             </table>
         </div>
         <div class="d-flex justify-content-center">

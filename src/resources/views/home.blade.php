@@ -16,9 +16,9 @@
                         <select name="target_id" class="form-select">
                             <option value="">サイトを選択</option>
                             <option value=0>【すべて表示】</option>
-                            <? foreach($target_list as $value){ ?>
+                            @foreach($target_list as $value)
                                 <option value={{$value->id}}>{{$value->site_name}}</option>
-                            <? } ?>
+                            @endforeach
                         </select>
                         <h6>【ステータスを１つ選択】</h6>
                         <div class="statusChange_area">
@@ -69,7 +69,7 @@
                     <th scope="col">@sortablelink('alert_cnt','警告回数')</th>
                     <th scope="col">巡回日</th>
                 </tr>
-                <? foreach($list as $value){ ?>
+                @foreach($list as $value)
                     <tr scope='row align-items-center'>
                         <td class='align-middle'>
                             {{ $value->site_name }}
@@ -96,7 +96,7 @@
                             {{ $value->patroled }}
                         </td>
                     </tr>
-                    <? } ?>
+                    @endforeach
                 </table>
             </form>
         </div>

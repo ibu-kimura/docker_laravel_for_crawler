@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Keywords_settingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function keywords_settings()
     {
         $works = DB::table('mst_works')->get();

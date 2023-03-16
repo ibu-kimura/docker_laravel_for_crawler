@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class TwitterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function Twitter()
     {
         $mst_works_datas = DB::table('mst_works')
