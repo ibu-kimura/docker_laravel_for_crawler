@@ -25,6 +25,8 @@ services:
 
   db:
     build: ./mysql
+    ports:
+      - 3309:3306
     volumes:
       - db-store:/var/lib/mysql
 
